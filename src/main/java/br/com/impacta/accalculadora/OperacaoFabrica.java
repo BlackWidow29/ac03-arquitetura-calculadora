@@ -1,7 +1,7 @@
 package br.com.impacta.accalculadora;
 
 public class OperacaoFabrica {
-     <T extends Operacao> Operacao criar(String operador){
+     <T extends Operacao> Operacao criar(String operador) throws Exception {
         switch (operador){
             case "adicao":
                 return new Adicao();
@@ -12,7 +12,7 @@ public class OperacaoFabrica {
             case "multiplicacao":
                 return new Multiplicacao();
             default:
-                return null;
+                throw new RuntimeException("OPERAÇÃO INVÁLIDA");
         }
     }
 }
